@@ -139,7 +139,6 @@ if (!error) {
 }
 })
 
-console.log("Server Running on Port ")
 
 
 

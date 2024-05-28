@@ -1,11 +1,12 @@
 import React from 'react'
+import Navbar from './Components/Navbar/Navbar'
+import Admin from './Pages/Admin/Admin';
 
 const App = () => {
   return (
 <div>
-      <div>App</div>
-      <div>App</div>
-      <div>App</div>
+      <Navbar/>
+      <Admin/>
   
 </div>
   )
