@@ -1,23 +1,43 @@
+// https://www.youtube.com/watch?v=y99YgaQjgx4&list=PPSV
+// problem *****
 
-
-import React, { createContext, useState } from "react";
-import all_product from "../Components/Assets/all_product.js";
+// import React, { createContext, useState } from "react";
+// problem not solved in true video in 8:13:40 *****
+import React, { createContext, useEffect, useState } from "react";
+// -------------------------------------------------
+// import all_product from "../Components/Assets/all_product.js";
 // import Product from './../Pages/Product';
+// import all_product from './../../../admin/src/assets/data';
 
 export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {
   let cart = {};
 
-  for (let index = 0; index < all_product.length; index++) {
-    cart[index] = 0;
+  // for (let index = 0; index < all_product.length+1; index++) {
+    // problem not solved in true video in 8:13:40 *****
+    for (let index = 0; index < 300+1; index++) {
+    // -----------------------------------------
+      cart[index] = 0;
   }
   return cart;
 };
 
 const ShopContextProvider = (props) => {
+
+  // problem not solved in true video in 8:13:40 *****
+  const [all_product,setAll_Product] = useState([]);
+  // -----------------------------------------------
   const [cartItems, setCartItems] = useState(getDefaultCart());
-  console.log(cartItems);
+  // console.log(cartItems);
+
+  // // problem not solved in true video in 8:13:40 *****
+  useEffect(()=>{
+    fetch('http://localhost:4000/allproducts')
+    .then((response)=>response.json())
+    .then((data)=>setAll_Product(data))
+  },[])
+// ---------------------------------------------------
 
   const addToCart = (itemId) => {
     setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}));

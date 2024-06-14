@@ -56,6 +56,7 @@ await fetchInfo();
       </>
     })}
     </div>
+    
     </div>
   )
 }
